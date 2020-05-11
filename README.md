@@ -1,5 +1,5 @@
 # nrf5sdk-createproject
-guideline to make new project on NRF5-SDK
+Guideline to create new project based on NRF5-SDK under windows environment.
 
 ## Prerequisite:
 ### 1.a. Install gnu-mcu-eclipse winddows-build-tools
@@ -21,7 +21,7 @@ There is NO WARRANTY, to the extent permitted by law.
 ```
 
 ### 2. Install GNU Arm Embedded Toolchain
-Download from https://github.com/gnu-mcu-eclipse/windows-build-tools/releases, install the toolchain, dont forget to select "add to path" option at the end of the installation. Verify the installation with cmd or powershell: 
+This is your arm gcc compiler. Download from https://github.com/gnu-mcu-eclipse/windows-build-tools/releases, install the toolchain, dont forget to select "add to path" option at the end of the installation. Verify the installation with cmd or powershell: 
  ```
  arm-none-eabi-gcc.exe --version
  ```
@@ -34,7 +34,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  ```
  
  ### 3. Install NRF5-SDK
- Download the zip file from https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs, extract the SDK anywhere, remember the path. 
+This is your core libraries and driver for nrf5x microcontroller. Download the zip file from https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs, extract the SDK anywhere, remember the path. 
+ 
+ ### 4. Install nRF Command Line Tools
+ This is a tool to get your code flashed into your chip and let you debug your chip using segger j-Link. Dowonload from
+ https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Command-Line-Tools/Download#infotabs, install the tool, don't forget to add the installed bin directory to yout path.
  
 ## How to create a project
 1. Copy related from NRF5-sdk example to your workspace
@@ -76,5 +80,36 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	```
 	SDK_CONFIG_FILE := ../config/sdk_config.h
 	```
+	your Makefile should look something like in this [example](https://github.com/luqmanhakimpens/nrf5sdk-createproject/blob/master/example/Makefile)
 
-
+5. open cmd or powershell, go to the directory where the makefile's in, build your project using  make.
+```
+PS D:\eclipse_cpp-1903\workspace-nrf52\blinky> make
+mkdir _build
+cd _build && mkdir nrf52832_xxaa
+Assembling file: gcc_startup_nrf52.S
+Compiling file: nrf_log_frontend.c
+Compiling file: nrf_log_str_formatter.c
+Compiling file: boards.c
+Compiling file: app_error.c
+Compiling file: app_error_handler_gcc.c
+Compiling file: app_error_weak.c
+Compiling file: app_util_platform.c
+Compiling file: nrf_assert.c
+Compiling file: nrf_atomic.c
+Compiling file: nrf_balloc.c
+Compiling file: nrf_fprintf.c
+Compiling file: nrf_fprintf_format.c
+Compiling file: nrf_memobj.c
+Compiling file: nrf_ringbuf.c
+Compiling file: nrf_strerror.c
+Compiling file: nrfx_atomic.c
+Compiling file: main.c
+Compiling file: system_nrf52.c
+Linking target: _build/nrf52832_xxaa.out
+   text    data     bss     dec     hex filename
+   2072     108      28    2208     8a0 _build/nrf52832_xxaa.out
+Preparing: _build/nrf52832_xxaa.hex
+Preparing: _build/nrf52832_xxaa.bin
+DONE nrf52832_xxaa
+```
