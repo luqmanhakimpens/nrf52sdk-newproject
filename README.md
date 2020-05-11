@@ -46,7 +46,8 @@ This is your core libraries and driver for nrf5x microcontroller. Download the z
 3. Delete unused .eww file 
 4. Make new dir in $(project_dir), name it "src", move main.c to "src" dir
 5. Make new dir in $(project_dir), name it "linker", move *_gcc_nrf52.ld to "linker" dir
-4. Edit makefile, 
+6. Your project tree should look like this repo.
+7. Edit the Makefile, 
 	a. Add these line after OUTPUT_DIRECTORY, overwrite the existing lines
     ```
     	#change according to your NRF5-SDK directory 
@@ -80,9 +81,9 @@ This is your core libraries and driver for nrf5x microcontroller. Download the z
 	```
 	SDK_CONFIG_FILE := ../config/sdk_config.h
 	```
-	your Makefile should look something like in this [example](https://github.com/luqmanhakimpens/nrf5sdk-createproject/blob/master/example/Makefile)
+	your Makefile should look something like this [Makefile](https://github.com/luqmanhakimpens/nrf5sdk-createproject/blob/master/Makefile)
 
-5. open cmd or powershell, go to the directory where the makefile's in, build your project using  make.
+8. open cmd or powershell, go to the directory where the makefile's in, build your project using  make, if everything's OK then the output should look something like this:
 ```
 PS D:\eclipse_cpp-1903\workspace-nrf52\blinky> make
 mkdir _build
@@ -112,4 +113,8 @@ Linking target: _build/nrf52832_xxaa.out
 Preparing: _build/nrf52832_xxaa.hex
 Preparing: _build/nrf52832_xxaa.bin
 DONE nrf52832_xxaa
+```
+9. Finnaly, to flash your chip, make sure to attach your chip to the J-Link via SWD interface and use:
+```
+make flash
 ```
