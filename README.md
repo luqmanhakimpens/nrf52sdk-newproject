@@ -43,21 +43,24 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 4. Make new dir in $(project_dir), name it "src", move main.c to "src" dir
 5. Make new dir in $(project_dir), name it "linker", move *_gcc_nrf52.ld to "linker" dir
 4. Edit makefile, 
-	a. Add these line after OUTPUT_DIRECTORY, overwrite the existing 
+	a. Add these line after OUTPUT_DIRECTORY, overwrite the existing lines
     ```
-	SDK_ROOT := D:/Nordic/nRF5_SDK_15.3.0_59ac345 #change according your SDK directory 
+    	#change according to your NRF5-SDK directory 
+	SDK_ROOT := D:/Nordic/nRF5SDK16-0098a08e2
 	PROJ_DIR := .
 	SDK_CONFIG_DIR := $(PROJ_DIR)/config/
 	SDK_CONFIG_FILE := $(PROJ_DIR)/sdk_config.h
+
 	$(OUTPUT_DIRECTORY)/nrf52832_xxaa.out: \
-	  LINKER_SCRIPT  := $(PROJ_DIR)/linker/blinky_gcc_nrf52.ld
+  	  LINKER_SCRIPT  := $(PROJ_DIR)/linker/blinky_gcc_nrf52.ld
+	#LINKER_SCRIPT has to be added with white-spaces in the begining, rule of makefile
     ```
 
 	b. edit SRC_FOLDERS, change:
 	```
-	$(PROJ_DIR)/src/main.c
+	$(PROJ_DIR)/main.c
 	```
-	to
+		to
 	```
 	$(PROJ_DIR)/src/main.c
 	```
@@ -65,7 +68,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	```
 	../config 
 	```
-	to
+		to
 	```
 	SDK_CONFIG_DIR
 	```
