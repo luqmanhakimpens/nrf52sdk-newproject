@@ -85,7 +85,7 @@ GNU_PREFIX := arm-none-eabi
 	```
 		to
 	```
-	SDK_CONFIG_DIR
+	$(SDK_CONFIG_DIR)
 	```
 	d. delete this line at bottom of the makefile:
 	```
