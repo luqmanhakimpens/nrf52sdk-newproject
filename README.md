@@ -52,11 +52,12 @@ GNU_PREFIX := arm-none-eabi
 ## How to create a project
 1. Copy related from NRF5-sdk example to your workspace
 2. Move all content from $(project_dir)/PCA10040/s132/armgcc to $(project_dir)
-3. Delete unused .eww file 
-4. Make new dir in $(project_dir), name it "src", move main.c to "src" dir
-5. Make new dir in $(project_dir), name it "linker", move *_gcc_nrf52.ld to "linker" dir
-6. Your project tree should look like this repo.
-7. Edit the Makefile, 
+3. Move $(project_dir)/PCA10040/s132/config to $(project_dir)
+4. Delete unused .eww file 
+5. Make new dir in $(project_dir), name it "src", move main.c to "src" dir
+6. Make new dir in $(project_dir), name it "linker", move *_gcc_nrf52.ld to "linker" dir
+7. Your project tree should look like this repo.
+8. Edit the Makefile, 
 	a. Add these line after OUTPUT_DIRECTORY, overwrite the existing lines
     ```
     	#change according to your NRF5-SDK directory 
@@ -92,7 +93,7 @@ GNU_PREFIX := arm-none-eabi
 	```
 	your Makefile should look something like this [Makefile](https://github.com/luqmanhakimpens/nrf5sdk-createproject/blob/master/Makefile)
 
-8. open cmd or powershell, go to the directory where the makefile's in, build your project using  make, if everything's OK then the output should look something like this:
+9. open cmd or powershell, go to the directory where the makefile's in, build your project using  make, if everything's OK then the output should look something like this:
 ```
 PS D:\eclipse_cpp-1903\workspace-nrf52\blinky> make
 mkdir _build
@@ -123,7 +124,7 @@ Preparing: _build/nrf52832_xxaa.hex
 Preparing: _build/nrf52832_xxaa.bin
 DONE nrf52832_xxaa
 ```
-9. Finnaly, to flash your chip, make sure to attach your chip to the J-Link via SWD interface and use:
+10. Finnaly, to flash your chip, make sure to attach your chip to the J-Link via SWD interface and use:
 ```
 make flash
 ```
