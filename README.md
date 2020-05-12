@@ -1,5 +1,5 @@
 # nrf5sdk-createproject
-Guideline to create new project based on NRF5-SDK under windows environment. This getting started guide is based on [this](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/development-with-gcc-and-eclipse) guide from Nordic.
+This is a guide to create new project of NRF52 based on NRF5-SDK under windows environment. This getting started guide is based on [this](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/development-with-gcc-and-eclipse) guide from Nordic. Note that this guide is intended to use only for NRF52832 chip, any board based on it should be worked.
 
 ## Prerequisite:
 ### 1.a. Install gnu-mcu-eclipse winddows-build-tools
@@ -53,7 +53,7 @@ GNU_PREFIX := arm-none-eabi
 1. Copy related from NRF5-sdk example to your workspace
 2. Move all content from $(project_dir)/PCA10040/s132/armgcc to $(project_dir)
 3. Move $(project_dir)/PCA10040/s132/config to $(project_dir)
-4. Delete unused .eww file 
+4. Delete *.eww file, PCA* and hex folder as those are no longer to be used.
 5. Make new dir in $(project_dir), name it "src", move main.c to "src" dir
 6. Make new dir in $(project_dir), name it "linker", move *_gcc_nrf52.ld to "linker" dir
 7. Your project tree should look like this repo.
