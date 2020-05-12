@@ -1,5 +1,5 @@
 # nrf5sdk-createproject
-Guideline to create new project based on NRF5-SDK under windows environment.
+Guideline to create new project based on NRF5-SDK under windows environment. This getting started guide is based on [this](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/development-with-gcc-and-eclipse) guide from Nordic.
 
 ## Prerequisite:
 ### 1.a. Install gnu-mcu-eclipse winddows-build-tools
@@ -33,8 +33,17 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  ```
  
- ### 3. Install NRF5-SDK
-This is your core libraries and driver for nrf5x microcontroller. Download the zip file from https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs, extract the SDK anywhere, remember the path. 
+ ### 3.a. Install NRF5-SDK
+This is your core libraries and driver for nrf5x microcontroller. Download the zip file from https://www.nordicsemi.com/Software-and-tools/Software/nRF5-SDK/Download#infotabs, extract the SDK anywhere, remember the path, let's call it SDK_ROOT. 
+ 
+ ### 3.b. Modify toolchain path
+ To make makefile be able to find the installed toolcahin edit makefile.windows found in SDK_ROOT/commponent/toolchain/gcc. The file looks like this:
+ ```
+GNU_INSTALL_ROOT := C:/Program Files (x86)/GNU Tools Arm Embedded/9 2019-q4-major/bin/
+GNU_VERSION := 9.2.1
+GNU_PREFIX := arm-none-eabi
+ ```
+ modify GNU_INSTALL_ROOT and GNU_VERSION according to your arm-GCC installation.
  
  ### 4. Install nRF Command Line Tools
  This is a tool to get your code flashed into your chip and let you debug your chip using segger j-Link. Dowonload from
