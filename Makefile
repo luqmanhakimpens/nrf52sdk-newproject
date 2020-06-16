@@ -3,7 +3,7 @@ TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
 #change SDK_ROOT according your SDK directory
-SDK_ROOT := D:/Nordic/nRF5SDK16-0098a08e2
+SDK_ROOT := E:/NordicSemiconductor/nRF5SDK16-0098a08e2
 PROJ_DIR := .
 SDK_CONFIG_DIR := $(PROJ_DIR)/config/
 SDK_CONFIG_FILE := $(PROJ_DIR)/sdk_config.h
