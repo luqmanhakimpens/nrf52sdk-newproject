@@ -128,3 +128,32 @@ DONE nrf52832_xxaa
 ```
 make flash
 ```
+## How to Integrate to Eclipse
+1. On eclipse, file >> New >> Makefile Project with existing code.
+2. Browse for project directory, Finish. 
+
+&nbsp;&nbsp;![eclipse_new_project](image/eclipse_nrfsdk_new_project_dialog.JPG)
+
+3. Open Project properties, go to C/C++ Build, on Builder Setting tab uncheck "Use default build command" modify build command to ``` make VERBOSE=1 ```, Apply.
+
+&nbsp;&nbsp;![eclipse_build command](image/eclipse_nrfsdk_build.JPG)
+
+4. Still in Project properties, go to C/C++ General >> Prepocessor Include Path, Macros etc., open provider tab, click on CDT GCC Build Output Parser, change compiler commmand pattern to ```(.*gcc)|(.*[gc]\+\+)```.
+
+&nbsp;&nbsp;![eclipse_build output parser](image/eclipse_nrfsdk_build_output_parser.JPG)
+
+5. On CDT Built-In Compiler Settings, change Command to get compiler specs to ```arm-none-eabi-gcc ${FLAGS} -E -P -v -dD "${INPUTS}"```, Apply and Close.
+
+&nbsp;&nbsp;![eclipse_builtin compiler settings](image/eclipse_nrfsdk_builtin_compiler_setting.JPG)
+
+5. Before building the project make sure to clean the project first, so that eclipse can capture build output. On project explorer, right-click project >> clean. Then build the project using hammer icon on upper left corner or right-click >> Build Project. After build project is done, right-click project >> index >> rebuild, after this the indexing error should be gone. 
+
+Before build:
+
+&nbsp;&nbsp;![eclipse_index error](image/eclipse_nrfsdk_index_error.JPG)
+
+After build:
+
+&nbsp;&nbsp;![eclipse_index ok](image/eclipse_nrfsdk_index_ok.JPG)
+
+
