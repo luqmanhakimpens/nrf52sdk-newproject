@@ -21,7 +21,7 @@ There is NO WARRANTY, to the extent permitted by law.
 ```
 
 ### 2. Install GNU Arm Embedded Toolchain
-This is your arm gcc compiler. Download from https://github.com/gnu-mcu-eclipse/windows-build-tools/releases, install the toolchain, dont forget to select "add to path" option at the end of the installation. Verify the installation with cmd or powershell: 
+This is your arm gcc compiler. Download from https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads, install the toolchain, dont forget to select "add to path" option at the end of the installation. Verify the installation with cmd or powershell: 
  ```
  arm-none-eabi-gcc.exe --version
  ```
