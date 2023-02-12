@@ -1,4 +1,7 @@
-# nrf5sdk-createproject
+# nrf5sdk projectseutup on Eclipse 
+
+## This project may become obsolete for newer version of SDK prior to SDK version 16. You may use this project as a reference only. Please refer to the official guide from Nordic. They suggest to use Segger Embedded Studio.
+   
 This is a guide to create new project of NRF52 based on NRF5-SDK under windows environment. This getting started guide is based on [this](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/development-with-gcc-and-eclipse) guide from Nordic. Note that this guide is intended to use only for NRF52832 chip, any board based on it should be worked.
 
 ## Prerequisite:
